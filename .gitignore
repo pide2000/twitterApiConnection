@@ -3,6 +3,9 @@
 # C extensions
 *.so
 
+#myTestFiles
+testTwitterApiConnection.py
+
 # Packages
 *.egg
 *.egg-info
