@@ -50,6 +50,7 @@ class TwitterApiConnector:
         return bearer_t
 
     # todo: this possibly doesnt work. dont know why
+
     def invalidate_bearer_token(self):
         temp_token = self.c_key + ':' + self.c_secret
         # base64 encode the token
