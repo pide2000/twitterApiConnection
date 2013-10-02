@@ -120,11 +120,11 @@ class TwitterApiConnector:
 
 if __name__ == '__main__':
 
-    CONSUMERKEY = 'tvsYifyhgSBZXZKAw89Pw'
-    CONSUMERSECRET = 'Ilhf89DeJoVZCbsv8h3lVGJ4ad03FQJNHMF0UFQNo'
-    TOKENKEY = '905717030-oDPf2iSbUhMH2bS7eccJT92zSKzGlpIoMC5Jthou'
-    TOKENSECRET = '62iqak9Sshg3q6rEIm1Ed9AQ7eCONX95rPtLkp817DI'
+    CONSUMERKEY = ''
+    CONSUMERSECRET = ''
+    TOKENKEY = ''
+    TOKENSECRET = ''
     twitter = TwitterApiConnector(CONSUMERKEY, CONSUMERSECRET, TOKENKEY, TOKENSECRET)
     #twitter.grab_stream()
-    print(twitter.get_a_tweet(383598356075122688))
+    print(twitter.get_a_tweet())
     print(twitter.search_twitter({'q': '#iphone', 'include_entities': 'true'}))
