@@ -129,12 +129,15 @@ class TwitterApiConnector:
         return json.loads(tweet.text)
 
     #todo: give it a callback possibility to call on every received tweet. Add a callback argument
-    def twitter_stream(self):
+    def twitter_stream(self, callback=json.loads):
         """
         gets the twitter stream and prints it on the console
 
         Args:
-
+            callback:   the function which will be called for every incoming tweet
+                        the function will be called with the json object of the tweet as argument
+                        callback(json tweet)
+                        default function is json.loads
 
         Returns:
             nothing
@@ -150,7 +153,7 @@ class TwitterApiConnector:
                     # filter out keep-alive new lines
 
                     if line:
-                        print(json.loads(line))
+                        callback(line)
             except KeyboardInterrupt:
                 print('End')
                 continue
@@ -158,26 +161,27 @@ class TwitterApiConnector:
                 print('an error occured')
                 raise
 
-    #todo: give it a callback possibility to call on every received tweet. Add a callback argument
-    def filter_stream(self, filter_params={'track': '#killertomatoes'}):
+    def filter_stream(self, filter_params={'track': '#killertomatoes'}, callback=json.loads):
         """
         Filter the twitter stream, filter options from https://dev.twitter.com/docs/api/1.1/post/statuses/filter
         Args:
             filter_params: A Python Dictionary with the filter parameters
-
+            callback:   the function which will be called for every incoming tweet
+                        the function will be called with the json object of the tweet as argument
+                        callback(json tweet)
+                        default function is json.loads
         Returns:
             prints the results on the console
         """
         url = "https://stream.twitter.com/1.1/statuses/filter.json"
         session = rauth.OAuth1Session(self.c_key, self.c_secret, self.t_key, self.t_secret)
-
         while True:
             t = session.post(url, stream=True, data=filter_params)
             print(t.request.body)
             try:
                 for line in t.iter_lines():
                     if line:
-                        print(json.loads(line))
+                        callback(line)
             except KeyboardInterrupt:
                 print('End')
                 #continue
@@ -187,11 +191,11 @@ class TwitterApiConnector:
 
 if __name__ == '__main__':
 
-    CONSUMERKEY = ''
-    CONSUMERSECRET = ''
-    TOKENKEY = ''
-    TOKENSECRET = ''
-    #twitter = TwitterApiConnector(CONSUMERKEY, CONSUMERSECRET, TOKENKEY, TOKENSECRET)
+    CONSUMER_KEY = ''
+    CONSUMER_SECRET = ''
+    TOKEN_KEY = ''
+    TOKEN_SECRET = ''
+    twitter = TwitterApiConnector(CONSUMER_KEY, CONSUMER_SECRET, TOKEN_KEY, TOKEN_SECRET)
     #twitter.grab_stream()
     #print(twitter.get_a_tweet())
     #print(twitter.search_twitter({'q': '#iphone', 'include_entities': 'true'}))
@@ -199,3 +203,4 @@ if __name__ == '__main__':
     #'stall_warning': 'true'
     #'track': ''
     #print(twitter.filter_stream())
+    #twitter.filter_stream({'track':'iphone'})
