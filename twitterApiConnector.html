@@ -1,0 +1,111 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module twitterApiConnector</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>twitterApiConnector</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/peter/PycharmProjects/twitterApiConnection/twitterApiConnector.py">/home/peter/PycharmProjects/twitterApiConnection/twitterApiConnector.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;Twitter&nbsp;Api&nbsp;Connector</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="base64.html">base64</a><br>
+</td><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="rauth.html">rauth</a><br>
+</td><td width="25%" valign=top><a href="requests.html">requests</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="twitterApiConnector.html#TwitterApiConnector">TwitterApiConnector</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TwitterApiConnector">class <strong>TwitterApiConnector</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Twitter&nbsp;Api&nbsp;Connection&nbsp;Class<br>
+Provides&nbsp;a&nbsp;simple&nbsp;way&nbsp;to&nbsp;connect&nbsp;to&nbsp;the&nbsp;Twitter&nbsp;Api&nbsp;with&nbsp;your&nbsp;credentials.&nbsp;Visit&nbsp;dev.twitter.com&nbsp;to&nbsp;get&nbsp;the<br>
+credentials&nbsp;to&nbsp;access&nbsp;the&nbsp;api's.&nbsp;With&nbsp;your&nbsp;credentials&nbsp;automatically&nbsp;a&nbsp;bearer&nbsp;token&nbsp;is&nbsp;fetched&nbsp;from&nbsp;the&nbsp;twitter<br>
+api.&nbsp;After&nbsp;this&nbsp;you&nbsp;can&nbsp;access&nbsp;the&nbsp;api's&nbsp;simply&nbsp;with&nbsp;the&nbsp;provided&nbsp;methods.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;consumer_key:&nbsp;&nbsp;&nbsp;Twitter&nbsp;Consumer&nbsp;Key<br>
+&nbsp;&nbsp;&nbsp;&nbsp;consumer_secret:&nbsp;&nbsp;&nbsp;&nbsp;Twitter&nbsp;Consumer&nbsp;Secret<br>
+&nbsp;&nbsp;&nbsp;&nbsp;token_key:&nbsp;&nbsp;Twitter&nbsp;Token&nbsp;Key<br>
+&nbsp;&nbsp;&nbsp;&nbsp;token_secret:&nbsp;Twitter&nbsp;Token&nbsp;Secret<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;TwitterApiConnection&nbsp;Object<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="TwitterApiConnector-__init__"><strong>__init__</strong></a>(self, consumer_key, consumer_secret, token_key, token_secret)</dt></dl>
+
+<dl><dt><a name="TwitterApiConnector-filter_stream"><strong>filter_stream</strong></a>(self, filter_params<font color="#909090">={'track': '#killertomatoes'}</font>)</dt><dd><tt>Filter&nbsp;the&nbsp;twitter&nbsp;stream,&nbsp;filter&nbsp;options&nbsp;from&nbsp;https://dev.twitter.com/docs/api/1.1/post/statuses/filter<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filter_params:&nbsp;A&nbsp;Python&nbsp;Dictionary&nbsp;with&nbsp;the&nbsp;filter&nbsp;parameters<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prints&nbsp;the&nbsp;results&nbsp;on&nbsp;the&nbsp;console</tt></dd></dl>
+
+<dl><dt><a name="TwitterApiConnector-get_a_tweet"><strong>get_a_tweet</strong></a>(self, tweet_id)</dt><dd><tt>Search&nbsp;for&nbsp;a&nbsp;specific&nbsp;tweet&nbsp;by&nbsp;tweet_id<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tweet_is:&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;tweet&nbsp;you&nbsp;want&nbsp;to&nbsp;get<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;python&nbsp;dict&nbsp;with&nbsp;result&nbsp;tweet</tt></dd></dl>
+
+<dl><dt><a name="TwitterApiConnector-get_rate_limit"><strong>get_rate_limit</strong></a>(self)</dt><dd><tt>Get&nbsp;your&nbsp;actual&nbsp;rate&nbsp;limits.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;python&nbsp;dict&nbsp;with&nbsp;your&nbsp;current&nbsp;rate&nbsp;limits&nbsp;of&nbsp;ALL&nbsp;Endpoints</tt></dd></dl>
+
+<dl><dt><a name="TwitterApiConnector-invalidate_bearer_token"><strong>invalidate_bearer_token</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TwitterApiConnector-search_twitter"><strong>search_twitter</strong></a>(self, search_params)</dt><dd><tt>Search&nbsp;for&nbsp;tweets&nbsp;using&nbsp;parameters&nbsp;as&nbsp;specified&nbsp;here:&nbsp;https://dev.twitter.com/docs/api/1.1/get/search/tweets<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;search_params:&nbsp;A&nbsp;Python&nbsp;Dictionary&nbsp;with&nbsp;the&nbsp;search&nbsp;parameters<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;python&nbsp;dict&nbsp;with&nbsp;search&nbsp;results</tt></dd></dl>
+
+<dl><dt><a name="TwitterApiConnector-twitter_stream"><strong>twitter_stream</strong></a>(self)</dt><dd><tt>gets&nbsp;the&nbsp;twitter&nbsp;stream&nbsp;and&nbsp;prints&nbsp;it&nbsp;on&nbsp;the&nbsp;console<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nothing</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__author__</strong> = 'Peter Bolch'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Peter&nbsp;Bolch</td></tr></table>
+</body></html>
